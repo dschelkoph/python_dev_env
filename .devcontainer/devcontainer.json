@@ -1,0 +1,55 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/python-3
+{
+	"dockerComposeFile": [
+		"docker-compose.yaml"
+	],
+	"name": "${localWorkspaceFolderBasename}",
+	"service": "devcontainer",
+	"workspaceFolder": "/workspace",
+	// Set *default* container specific settings.json values on container create.
+	"postCreateCommand": [
+		".devcontainer/vscode_scripts/post_create.bash",
+		"${localWorkspaceFolderBasename}"
+	],
+	"settings": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true
+		},
+		"editor.formatOnSave": true,
+		"files.autoSave": "afterDelay",
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			".pytest_cache": true
+		},
+		"files.trimTrailingWhitespace": true,
+		"python.defaultInterpreterPath": "/usr/local/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.banditEnabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.linting.banditPath": "/home/dev/.local/bin/bandit",
+		"python.linting.banditArgs": [
+			"-c",
+			"pyproject.toml"
+		],
+		"python.linting.pylintPath": "/home/dev/.local/bin/pylint",
+		"python.formatting.provider": "black",
+		"python.formatting.blackPath": "/home/dev/.local/bin/black",
+		"python.testing.pytestEnabled": true,
+		"python.testing.pytestPath": "/home/dev/.local/bin/pytest"
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"ritwickdey.liveserver",
+		"njpwerner.autodocstring",
+		"ryanluker.vscode-coverage-gutters",
+		"tamasfe.even-better-toml"
+	],
+}

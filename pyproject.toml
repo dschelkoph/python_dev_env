@@ -1,0 +1,57 @@
+[tool.bandit.assert_used]
+skips = ["*_test.py", "test_*.py"]
+
+[tool.black]
+line-length = 100
+
+[tool.coverage.run]
+branch = true
+data_file = "coverage/.coverage"
+dynamic_context = "test_function"
+
+[tool.coverage.report]
+skip_covered = true
+skip_empty = true
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "pass($|\\s)",
+    "\\.{3}$",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+[tool.coverage.html]
+show_contexts = true
+directory = "coverage/htmlcov"
+
+[tool.coverage.xml]
+output = "coverage/coverage.xml"
+
+[tool.isort]
+profile = "black"
+
+[tool.poetry]
+name = "project"
+version = "0.1.0"
+description = "<DESCRIPTION>"
+authors = ["Your Name <you@example.com>"]
+license = "<LICENSE>"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "latest"
+pytest-cov = "latest"
+
+[tool.pyright]
+typeCheckingMode = "basic"
+
+[tool.pytest.ini_options]
+required_plugins = "pytest-cov"
+testpaths = "tests"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
