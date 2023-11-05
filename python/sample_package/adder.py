@@ -1,5 +1,5 @@
 def add_two(x: int) -> int:
-    """"Add 2 to a positive integer.
+    """Add 2 to a positive integer.
 
     This is a sample output from the 'autodocstring' extension
 
@@ -16,5 +16,7 @@ def add_two(x: int) -> int:
         raise ValueError(f"x must be greater than 0. Current value: {x}")
     return x + 2
 
+
 def add_three(x: int) -> int:
     return x + 3
+
