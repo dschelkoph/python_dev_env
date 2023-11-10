@@ -19,4 +19,3 @@ def add_two(x: int) -> int:
 
 def add_three(x: int) -> int:
     return x + 3
-
